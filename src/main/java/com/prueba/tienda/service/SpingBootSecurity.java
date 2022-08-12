@@ -37,5 +37,4 @@ public class SpingBootSecurity extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
-
 }
