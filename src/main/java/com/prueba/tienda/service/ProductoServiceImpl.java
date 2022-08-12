@@ -7,42 +7,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.prueba.tienda.model.Producto;
-import com.prueba.tienda.repository.ProductoRepository;
+
+import com.prueba.tienda.repository.IProductoRepository;
 
 @Service
-
-public class ProductoServiceImpl implements ProductoService {
-
+public class ProductoServiceImpl implements ProductoService{
+	
 	@Autowired
-	private ProductoRepository productoRepository;
+	private IProductoRepository productoRepository;
+
 	@Override
 	public Producto save(Producto producto) {
-		
 		return productoRepository.save(producto);
 	}
 
 	@Override
 	public Optional<Producto> get(Integer id) {
-		
 		return productoRepository.findById(id);
 	}
+
 	@Override
 	public void update(Producto producto) {
-		productoRepository.save(producto);
-		
+		productoRepository.save(producto);		
 	}
+
 	@Override
 	public void delete(Integer id) {
-		productoRepository.deleteById(id);;
-		
+		productoRepository.deleteById(id);		
 	}
 
 	@Override
 	public List<Producto> findAll() {
-		
 		return productoRepository.findAll();
 	}
 
-
-
 }
+
